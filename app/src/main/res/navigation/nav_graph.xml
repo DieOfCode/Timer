@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navGraph"
+    app:startDestination="@id/timerFragment">
+
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.example.timer.timer.TimerFragment"
+        android:label="@string/timer_title"
+        tools:layout="@layout/fragment_timer">
+
+        <action
+            android:id="@+id/action_timerFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
+        <action
+            android:id="@+id/action_timerFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+
+        <action
+            android:id="@+id/action_timerFragment_to_createTimerFlow"
+            app:destination="@id/createTimerFlow" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.timer.settings.SettingsFragment"
+        android:label="@string/settings_title"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.timer.history.HistoryFragment"
+        android:label="@string/history_title"
+        tools:layout="@layout/fragment_history" />
+
+    <navigation
+        android:id="@+id/createTimerFlow"
+        app:startDestination="@id/timerSetupFragment">
+
+        <fragment
+            android:id="@+id/timerSetupFragment"
+            android:name="com.example.timer.create.TimerSetupFragment"
+            android:label="@string/timer_setup_title"
+            tools:layout="@layout/fragment_timer_setup">
+
+            <action
+                android:id="@+id/action_timerSetupFragment_to_soundSelectionFragment"
+                app:destination="@id/soundSelectionFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/soundSelectionFragment"
+            android:name="com.example.timer.create.SoundSelectionFragment"
+            android:label="@string/sound_selection_title"
+            tools:layout="@layout/fragment_sound_selection">
+
+            <action
+                android:id="@+id/action_soundSelectionFragment_to_timerConfirmationFragment"
+                app:destination="@id/timerConfirmationFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/timerConfirmationFragment"
+            android:name="com.example.timer.create.TimerConfirmationFragment"
+            android:label="@string/confirmation_title"
+            tools:layout="@layout/fragment_timer_confirmation">
+
+            <action
+                android:id="@+id/action_timerConfirmationFragment_to_timerFragment"
+                app:destination="@id/timerFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/createTimerFlow"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+</navigation>
