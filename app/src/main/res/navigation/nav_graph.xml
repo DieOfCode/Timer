@@ -13,14 +13,6 @@
         tools:layout="@layout/fragment_timer">
 
         <action
-            android:id="@+id/action_timerFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-
-        <action
-            android:id="@+id/action_timerFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
-
-        <action
             android:id="@+id/action_timerFragment_to_createTimerFlow"
             app:destination="@id/createTimerFlow" />
     </fragment>

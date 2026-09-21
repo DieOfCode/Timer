@@ -25,12 +25,14 @@ object TimerAlarmScheduler {
     fun schedule(
         context: Context,
         triggerAtElapsedRealtime: Long,
-        sound: TimerSound
+        sound: TimerSound,
+        durationMillis: Long
     ): ScheduleResult {
         val alarmManager = alarmManager(context)
         val pendingIntent = createPendingIntent(
             context = context,
-            sound = sound
+            sound = sound,
+            durationMillis = durationMillis
         )
 
         if (canScheduleExact(context)) {
@@ -66,7 +68,8 @@ object TimerAlarmScheduler {
 
     private fun createPendingIntent(
         context: Context,
-        sound: TimerSound = TimerSound.BELL
+        sound: TimerSound = TimerSound.BELL,
+        durationMillis: Long = 0L
     ): PendingIntent {
         val intent = Intent(
             context,
@@ -77,6 +80,10 @@ object TimerAlarmScheduler {
             putExtra(
                 TimerAlarmReceiver.EXTRA_TIMER_SOUND,
                 sound.name
+            )
+            putExtra(
+                TimerAlarmReceiver.EXTRA_TIMER_DURATION_MILLIS,
+                durationMillis
             )
         }
 

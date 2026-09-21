@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import com.example.timer.R
 import com.example.timer.TimerApplication
 import com.example.timer.databinding.FragmentSettingsBinding
@@ -75,9 +74,6 @@ class SettingsFragment : Fragment() {
             )
         }
 
-        binding.backButton.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private fun collectState() {

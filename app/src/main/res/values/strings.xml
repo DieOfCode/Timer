@@ -14,9 +14,11 @@
     <string name="settings_save_failed">Не удалось сохранить настройки</string>
     <string name="duration_validation_error">Введите число от 1 до 1440</string>
     <string name="history_title">История</string>
-    <string name="open_settings">Открыть настройки</string>
-    <string name="open_history">Открыть историю</string>
-    <string name="go_back">Назад</string>
+    <string name="history_empty">Завершённых таймеров пока нет</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="delete_history_item">Удалить</string>
+    <string name="history_duration_minutes">%1$d мин.</string>
+    <string name="history_item_summary">%1$s · %2$s</string>
     <string name="pause">Пауза</string>
     <string name="resume">Продолжить</string>
     <string name="reset">Сброс</string>

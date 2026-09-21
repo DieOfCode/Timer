@@ -122,7 +122,8 @@ class TimerFragment : Fragment() {
                     status = state.status,
                     finishTimeElapsedRealtime =
                         state.finishTimeElapsedRealtime,
-                    sound = state.sound
+                    sound = state.sound,
+                    durationMillis = state.durationMillis
                 )
             }
             .distinctUntilChanged()
@@ -193,18 +194,6 @@ class TimerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         collectState()
-
-        binding.openSettingsButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_timerFragment_to_settingsFragment
-            )
-        }
-
-        binding.openHistoryButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_timerFragment_to_historyFragment
-            )
-        }
 
         binding.createTimerButton.setOnClickListener {
             findNavController().navigate(
@@ -287,7 +276,8 @@ class TimerFragment : Fragment() {
                     TimerAlarmScheduler.schedule(
                         context = requireContext(),
                         triggerAtElapsedRealtime = finishTime,
-                        sound = state.sound
+                        sound = state.sound,
+                        durationMillis = state.durationMillis
                     )
                 }
             }
@@ -309,7 +299,8 @@ class TimerFragment : Fragment() {
                 status = state.status,
                 finishTimeElapsedRealtime =
                     state.finishTimeElapsedRealtime,
-                sound = state.sound
+                sound = state.sound,
+                durationMillis = state.durationMillis
             )
         )
     }
@@ -317,6 +308,7 @@ class TimerFragment : Fragment() {
     private data class AlarmState(
         val status: TimerStatus,
         val finishTimeElapsedRealtime: Long?,
-        val sound: TimerSound
+        val sound: TimerSound,
+        val durationMillis: Long
     )
 }
