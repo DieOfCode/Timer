@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/timerFragment"
+        android:icon="@drawable/ic_nav_timer"
+        android:title="@string/timer_title" />
+
+    <item
+        android:id="@+id/historyFragment"
+        android:icon="@drawable/ic_nav_history"
+        android:title="@string/history_title" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_nav_settings"
+        android:title="@string/settings_title" />
+</menu>
